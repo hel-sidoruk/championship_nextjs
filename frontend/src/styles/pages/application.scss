@@ -1,3 +1,12 @@
+.admin__nav {
+  display: flex;
+  gap: 50px;
+  margin-bottom: 30px;
+  @media (max-width: 540px) {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
 .application {
   background-color: #fff;
   padding: 16px;
@@ -36,5 +45,48 @@
   gap: 36px;
 }
 .application__subtitle {
-  margin-bottom: 30px;
+  transition: color .2s ease-in-out;
+  font-weight: bold;
+  &.active {
+    pointer-events: none;
+    color: $btn-primary;
+  }
+  &:hover {
+    color: $btn-primary;
+  }
+}
+.apps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.apps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+.registered {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 1px 1px 3px rgba(#000, 0.5);
+  &__item {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    &:not(:last-child) {
+      border-bottom: 1px solid #c4c4c4;
+    }
+  }
+  &__name {
+    padding: 10px 20px;
+    font-weight: bold;
+    border-bottom: 2px solid #000;
+  }
 }

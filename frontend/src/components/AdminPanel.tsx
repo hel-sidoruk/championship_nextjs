@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Application from './Application';
 import axios from 'axios';
 import { ParticipantType } from '@/types';
+import Link from 'next/link';
 
 export default function AdminPanel() {
   const [data, setData] = useState<ParticipantType[]>([]);
@@ -15,7 +16,14 @@ export default function AdminPanel() {
 
   return (
     <div>
-      <h2 className="subtitle application__subtitle">Новые заявки</h2>
+      <div className="admin__nav">
+        <Link href="/admin" className="subtitle application__subtitle active">
+          Новые заявки
+        </Link>
+        <Link href="/admin/registered" className="subtitle application__subtitle">
+          Зарегистрированные
+        </Link>
+      </div>
       <div className="application-container">
         {data.map((item) => (
           <Application applicationData={item} key={item.id} />
