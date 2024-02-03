@@ -4,6 +4,7 @@ const port = process.env.PORT || 5000;
 const express = require("express");
 const app = express();
 const config = require('./knexfile');
+const cors = require('cors')
 const knex = require('knex')(config);
 const TelegramApi = require('node-telegram-bot-api')
 const jwt = require('jsonwebtoken');
@@ -24,7 +25,7 @@ const { categories, categoriesBelts, categoriesWeights } = require('./categories
 app.get('/participants', async (req, res) => {
   try {
     const data = {};
-    const participants = await knex('participants');
+    const participants = await knex('participants').orderBy('name');
 
     categories.forEach((division) => {
       const categoryParticipants = participants.filter((el) => el.division === division);
@@ -79,7 +80,7 @@ app.post('/participants', async (req, res) => {
 
 app.get('/applications', async (req, res) => {
   try {
-    const applications = await knex('applications');
+    const applications = await knex('applications').orderBy('name');
 
     console.log('GET /applications | 200 OK')
 
