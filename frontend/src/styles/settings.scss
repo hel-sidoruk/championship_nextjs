@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'TenorSans';
+  src: url('/TenorSans.woff') format('woff');
+  font-weight: 400;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+@mixin scrollBar($width) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $primary;
+    &:hover {
+      background: lighten($primary, 10);
+    }
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-weight: 400;
+  font-family: 'TenorSans', sans-serif;
+  overflow-x: hidden;
+  background-color: $light;
+  color: $dark;
+  @include scrollBar(14px);
+}
+.site-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.section-offset {
+  padding: 70px 0;
+  @media (max-width:1024px) {
+    padding: 60px 0;
+  }
+}
+main {
+  flex-grow: 1;
+}
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+h1,h2,h3,h4,h5,p {
+  margin: 0;
+}
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+}
+button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1360px;
+  padding: 0 40px;
+  margin: 0 auto;
+  @media (max-width: 900px) {
+    max-width: 680px;
+  }
+  @media (max-width:768px) {
+    padding: 0 15px;
+  }
+}

@@ -1,0 +1,88 @@
+.header {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  background: $primary;
+  box-shadow: 0 4px 6px 1px rgba(#000, 0.5);
+  @media (max-width: 900px) {
+    height: 80px;
+  }
+  @media (max-width: 768px) {
+    height: 70px;
+  }
+  &__container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    @media (max-width: 576px) {
+      position: absolute;
+      display: none;
+      flex-direction: column;
+      top: 0;
+      z-index: 100;
+      background-color: rgba($black, 0.9);
+      align-items: start;
+      padding: 50px 40px;
+      height: 100vh;
+      right: 0;
+    }
+    @media (max-width: 576px) {
+      width: 100%;
+    }
+  }
+  &__navActive {
+    display: block;
+  }
+  &__link {
+    font-size: 16px;
+    line-height: 30px;
+    color: $light;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    transition: all .3s ease-in-out;
+    &:not(:last-child) {
+      margin-right: 62px;
+      @media (max-width: 576px) {
+        margin-right: 0;
+        margin-bottom: 30px;
+      }
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      left: 0;
+      bottom: -3px;
+      transition: all .3s ease-in-out;
+      transform: scale(0);
+      background-color: $light;
+    }
+    &:hover {
+      &::after {
+        transform: scale(1);
+      }
+      @media (max-width: 768px) {
+        &::after {
+          content: unset;
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      display: block;
+    }
+    &.disabled {
+      pointer-events: none;
+      display: inline-block;
+      &::after {
+        transform: scaleY(1);
+      }
+    }
+  }
+}

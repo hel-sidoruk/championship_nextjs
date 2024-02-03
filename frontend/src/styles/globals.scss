@@ -1,0 +1,12 @@
+@import './variables';
+@import './settings';
+@import './buttons';
+@import './text';
+
+@import './layout';
+@import './pages';
+@import './components';
+
+[class*="ground-pane"] {
+  filter: grayscale(0.4);
+}

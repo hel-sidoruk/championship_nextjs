@@ -1,0 +1,27 @@
+.title {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 60px;
+  @media (max-width: 500px) {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+.subtitle {
+  font-size: 32px;
+  line-height: 38px;
+  @media (max-width: 1200px) {
+    font-size: 26px;
+    line-height: 30px;
+  }
+}
+
+.text {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.align-center {
+  text-align: center;
+}

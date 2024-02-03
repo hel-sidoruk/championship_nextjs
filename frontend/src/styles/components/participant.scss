@@ -1,0 +1,19 @@
+.participant {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 1px 1px 3px rgba(#000, 0.5);
+  padding: 10px 20px;
+  height: 56px;
+  display: grid;
+  grid-template-columns: 43% 12% 15% 30%;
+  align-items: center;
+  max-width: 900px;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    height: auto;
+  }
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}

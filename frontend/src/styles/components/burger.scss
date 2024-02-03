@@ -1,0 +1,51 @@
+.burger {
+  display: none;
+  position: relative;
+  width: 50px;
+  height: 32px;
+  z-index: 101;
+  cursor: pointer;
+  &:hover {
+    span {
+      background-color: $btn-primary;
+    }
+  }
+  @media (max-width: 576px) {
+    display: block;
+    width: 40px;
+    height: 26px;
+  }
+  &__line {
+    height: 3px;
+    background-color: #fff;
+    font-size: 0;
+    border-radius: 5px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    transition: all .3s ease-in-out;
+    &:first-child {
+      top: 0;
+    }
+    &:nth-child(2) {
+      top: 51%;
+    }
+    &:last-child {
+      top: 100%;
+    }
+  }
+
+  &__lineActive {
+    &:nth-child(2) {
+      display: none;
+    }
+    &:first-child {
+      transform: rotate(45deg);
+      top: 51%;
+    }
+    &:last-child {
+      transform: rotate(-45deg);
+      top: 51%;
+    }
+  }
+}

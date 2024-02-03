@@ -1,0 +1,21 @@
+.list {
+  font-size: 18px;
+  .title {
+    margin-bottom: 48px;
+  }
+  &__block {
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  &__subtitle {
+    font-weight: bold;
+    margin-bottom: 24px;
+    font-size: 32px;
+    @media (max-width: 576px) {
+      font-size: 24px;
+    }
+  }
+  padding-bottom: 60px;
+}

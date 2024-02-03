@@ -1,0 +1,40 @@
+.application {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px 2px rgba(#000, 0.4);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  @media (max-width: 1080px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
+  &.deleted {
+    display: none;
+  }
+  &__field {
+    .form__input {
+      font-weight: bold;
+      pointer-events: none;
+      border-color: rgba(#000, 0.1);
+      &.active {
+        pointer-events: all;
+        border-color: #000;
+      }
+    }
+  }
+  .btn {
+    align-self: self-end;
+  }
+}
+.application-container {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+.application__subtitle {
+  margin-bottom: 30px;
+}
