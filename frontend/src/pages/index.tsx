@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import { ApplicationForm } from '@/components/Forms';
 import Section from '@/components/UI/Section';
-import { ParticipantType } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import Regulations from '@/components/Regulations';

@@ -42,7 +42,6 @@ export function useSearchForm() {
       if (division) setCategory(division);
       if (weight) setWeight(weight);
       if (belt) setBelt(belt);
-      console.log(Object.fromEntries(params.entries()));
     }
   }, [params]);
 

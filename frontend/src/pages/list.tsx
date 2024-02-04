@@ -4,9 +4,11 @@ import Section from '@/components/UI/Section';
 import { ParticipantType } from '@/types';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 
 export default function List() {
   const [data, setData] = useState<{ [key: string]: ParticipantType[] }>({});
+  const params = useSearchParams();
 
   useEffect(() => {
     axios.get(`api/participants`).then(({ data }) => {
@@ -16,6 +18,12 @@ export default function List() {
     //   setData(data);
     // });
   }, []);
+
+  useEffect(() => {
+    axios
+      .get(`api/participants`, { params: Object.fromEntries(params.entries()) })
+      .then(({ data }) => setData(data));
+  }, [params]);
 
   return (
     <>
