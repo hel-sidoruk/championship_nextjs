@@ -33,7 +33,13 @@ export function useApplicationForm() {
 
   const setName = (name: string) => setValues((state) => ({ ...state, name }));
   const setBirthdate = (birthdate: string) => setValues((state) => ({ ...state, birthdate }));
-  const setDivision = (division: string) => setValues((state) => ({ ...state, division }));
+  const setDivision = (division: string) => {
+    if (values.division !== division) {
+      setWeight(0);
+      setBelt('');
+    }
+    setValues((state) => ({ ...state, division }));
+  };
   const setWeight = (weight: number) => setValues((state) => ({ ...state, weight }));
   const setBelt = (belt: string) => setValues((state) => ({ ...state, belt }));
   const setTeam = (team: string) => setValues((state) => ({ ...state, team }));

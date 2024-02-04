@@ -1,7 +1,7 @@
 import { useApplicationForm } from '@/hooks/useApplicationForm';
 import { useApplicationSubmit } from '@/hooks/useApplicationSubmit';
 import { categoriesBelts, categoriesWeights, categories } from '@/utils/categories';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Loader } from '../UI/Loader';
 import Dropdown from './Dropdown';
 import { FormSuccess } from './FormSuccess';
@@ -72,11 +72,6 @@ export const ApplicationForm = () => {
     setTrainer('');
     resetSuccess();
   };
-
-  useEffect(() => {
-    setWeight(0);
-    setBelt('');
-  }, [values.division]);
 
   return (
     <div className="form-container">
@@ -158,9 +153,9 @@ export const ApplicationForm = () => {
         <Dropdown
           onClick={handleCategoryClick}
           active={divisionActive}
-          setActive={(value: boolean) => setDivisionActive(value)}
+          setActive={setDivisionActive}
           state={values.division}
-          setState={(value: string) => setDivision(value)}
+          setState={setDivision}
           text="Дивизион"
           error={errors.divisionError}
           values={categories}
@@ -168,9 +163,9 @@ export const ApplicationForm = () => {
         <Dropdown
           onClick={handleWeightClick}
           active={weightActive}
-          setActive={(value: boolean) => setWeightActive(value)}
+          setActive={setWeightActive}
           state={values.weight || ''}
-          setState={(value: number) => setWeight(value)}
+          setState={setWeight}
           text="Весовая категория"
           error={errors.weightError}
           listDisabled={values.division === ''}
@@ -179,9 +174,9 @@ export const ApplicationForm = () => {
         <Dropdown
           onClick={handleBeltClick}
           active={beltActive}
-          setActive={(value: boolean) => setBeltActive(value)}
+          setActive={setBeltActive}
           state={values.belt}
-          setState={(value: string) => setBelt(value)}
+          setState={setBelt}
           text="Пояс"
           listDisabled={values.division === ''}
           error={errors.beltError}
