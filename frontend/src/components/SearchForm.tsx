@@ -1,21 +1,16 @@
 import { categoriesBelts, categoriesWeights, categories } from '@/utils/categories';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Dropdown from './Forms/Dropdown';
+import { useSearchForm } from '@/hooks/useSearchForm';
 
 const dropdownDefaultValue = ['Выберите возрастную категорию'];
 
 export const SearchForm = () => {
+  const [query, setCategory, setWeight, setBelt, search, reset] = useSearchForm();
+
   const [categoryActive, setCategoryActive] = useState(false);
   const [weightActive, setWeightActive] = useState(false);
   const [beltActive, setBeltActive] = useState(false);
-
-  const [category, setCategory] = useState('');
-  const [weight, setWeight] = useState(0);
-  const [belt, setBelt] = useState('');
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-  };
 
   const handleCategoryClick = () => {
     setWeightActive(false);
@@ -32,51 +27,45 @@ export const SearchForm = () => {
     setCategoryActive(false);
   };
 
-  useEffect(() => {
-    setWeight(0);
-    setBelt('');
-  }, [category]);
-
   return (
-    <form className={`form search-form`} onSubmit={handleSubmit}>
-      <div className="form__field">
-        <Dropdown
-          onClick={handleCategoryClick}
-          active={categoryActive}
-          setActive={(value: boolean) => setCategoryActive(value)}
-          state={category}
-          setState={(value: string) => setCategory(value)}
-          text="Категория"
-          values={categories}
-        />
+    <div className={`form search-form`}>
+      <Dropdown
+        onClick={handleCategoryClick}
+        active={categoryActive}
+        setActive={setCategoryActive}
+        state={query.division}
+        setState={setCategory}
+        text="Дивизион"
+        values={categories}
+      />
+      <Dropdown
+        onClick={handleWeightClick}
+        active={weightActive}
+        setActive={setWeightActive}
+        state={query.weight}
+        setState={setWeight}
+        text="Весовая категория"
+        listDisabled={query.division === ''}
+        values={query.division ? categoriesWeights[query.division] : dropdownDefaultValue}
+      />
+      <Dropdown
+        onClick={handleBeltClick}
+        active={beltActive}
+        setActive={setBeltActive}
+        state={query.belt}
+        setState={setBelt}
+        text="Пояс"
+        listDisabled={query.division === ''}
+        values={query.division ? categoriesBelts[query.division] : dropdownDefaultValue}
+      />
+      <div className="btns-container">
+        <button className="btn btn-fill form__btn" onClick={search}>
+          Поиск
+        </button>
+        <button className="btn btn-fill form__btn" onClick={reset}>
+          Сброс
+        </button>
       </div>
-      <div className="form__field">
-        <Dropdown
-          onClick={handleWeightClick}
-          active={weightActive}
-          setActive={(value: boolean) => setWeightActive(value)}
-          state={weight || ''}
-          setState={(value: number) => setWeight(value)}
-          text="Весовая категория"
-          listDisabled={category === ''}
-          values={category ? categoriesWeights[category] : dropdownDefaultValue}
-        />
-      </div>
-      <div className="form__field">
-        <Dropdown
-          onClick={handleBeltClick}
-          active={beltActive}
-          setActive={(value: boolean) => setBeltActive(value)}
-          state={belt}
-          setState={(value: string) => setBelt(value)}
-          text="Пояс"
-          listDisabled={category === ''}
-          values={category ? categoriesBelts[category] : dropdownDefaultValue}
-        />
-      </div>
-      <button type="submit" className="btn btn-fill form__btn">
-        Поиск
-      </button>
-    </form>
+    </div>
   );
 };

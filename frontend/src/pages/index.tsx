@@ -38,7 +38,7 @@ export default function Home({ data }: { data: { [key: string]: ParticipantType[
               Списки участников
             </Link>
             <Link className="btn btn-fill form__btn" href="/registration">
-              Регистрация на турнир
+              Регистрация
             </Link>
           </div>
           <Regulations />

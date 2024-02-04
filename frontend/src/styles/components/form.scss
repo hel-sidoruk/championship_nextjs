@@ -21,6 +21,13 @@
   }
   &.search-form {
     margin-bottom: 40px;
+    .btns-container {
+      display: flex;
+      gap: 10px;
+    }
+    .btn {
+      flex-grow: 1;
+    }
   }
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
@@ -109,7 +116,6 @@
   &__btn {
     font-size: 18px;
     text-transform: uppercase;
-    min-width: 300px;
     letter-spacing: 1px;
     @media (max-width: 900px) {
       margin-top: 16px;

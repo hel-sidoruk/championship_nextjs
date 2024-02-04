@@ -9,12 +9,12 @@ export default function List() {
   const [data, setData] = useState<{ [key: string]: ParticipantType[] }>({});
 
   useEffect(() => {
+    axios.get(`api/participants`).then(({ data }) => {
+      setData(data);
+    });
     // axios.get(`http://api.bncbjj.site/participants`).then(({ data }) => {
     //   setData(data);
     // });
-    axios.get(`http://api.bncbjj.site/participants`).then(({ data }) => {
-      setData(data);
-    });
   }, []);
 
   return (
