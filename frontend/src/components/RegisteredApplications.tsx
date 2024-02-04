@@ -1,28 +1,18 @@
-import Section from '@/components/UI/Section';
 import { ParticipantType } from '@/types';
 import axios from 'axios';
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
-export default function Registered() {
+export default function RegisteredApplications() {
   const [data, setData] = useState<{ [key: string]: ParticipantType[] }>({});
 
   useEffect(() => {
-    axios.get('http://api.bncbjj.site/participants').then(({ data }) => {
+    axios.get('http://localhost:5000/participants').then(({ data }) => {
+      // axios.get('http://api.bncbjj.site/participants').then(({ data }) => {
       setData(data);
     });
   }, []);
-
   return (
-    <Section>
-      <div className="admin__nav">
-        <Link href="/admin" className="subtitle application__subtitle">
-          Новые заявки
-        </Link>
-        <Link href="/admin/registered" className="subtitle application__subtitle active">
-          Зарегистрированные
-        </Link>
-      </div>
+    <>
       {Object.keys(data).map((title) =>
         data[title].length ? (
           <div className="apps-container" key={title}>
@@ -61,9 +51,9 @@ export default function Registered() {
             </div>
           </div>
         ) : (
-          <></>
+          <React.Fragment key={title}></React.Fragment>
         )
       )}
-    </Section>
+    </>
   );
 }

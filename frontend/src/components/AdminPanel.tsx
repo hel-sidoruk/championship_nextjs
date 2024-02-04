@@ -1,34 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import Application from './Application';
-import axios from 'axios';
-import { ParticipantType } from '@/types';
-import Link from 'next/link';
+import React, { useState } from 'react';
+import NewApplications from './NewApplications';
+import RegisteredApplications from './RegisteredApplications';
 
 export default function AdminPanel() {
-  const [data, setData] = useState<ParticipantType[]>([]);
-  useEffect(() => {
-    axios
-      .get('http://api.bncbjj.site/applications')
-      .then(({ data }: { data: ParticipantType[] }) => {
-        setData(data);
-      });
-  }, []);
+  const [currentTab, setCurrentTab] = useState('new');
+
+  const openNewTab = () => setCurrentTab('new');
+  const openRegisteredTab = () => setCurrentTab('registered');
 
   return (
-    <div>
+    <>
       <div className="admin__nav">
-        <Link href="/admin" className="subtitle application__subtitle active">
+        <button className={`subtitle ${currentTab === 'new' ? 'active' : ''}`} onClick={openNewTab}>
           Новые заявки
-        </Link>
-        <Link href="/admin/registered" className="subtitle application__subtitle">
+        </button>
+        <button
+          className={`subtitle ${currentTab === 'registered' ? 'active' : ''}`}
+          onClick={openRegisteredTab}
+        >
           Зарегистрированные
-        </Link>
+        </button>
       </div>
-      <div className="application-container">
-        {data.map((item) => (
-          <Application applicationData={item} key={item.id} />
-        ))}
-      </div>
-    </div>
+      {currentTab === 'new' ? <NewApplications /> : <RegisteredApplications />}
+    </>
   );
 }

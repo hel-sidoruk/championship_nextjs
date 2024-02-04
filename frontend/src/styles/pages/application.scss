@@ -6,6 +6,17 @@
     flex-direction: column;
     gap: 12px;
   }
+  .subtitle {
+    transition: color .2s ease-in-out;
+    font-weight: bold;
+    &.active {
+      pointer-events: none;
+      color: $btn-primary;
+    }
+    &:hover {
+      color: $btn-primary;
+    }
+  }
 }
 .application {
   background-color: #fff;
@@ -43,17 +54,6 @@
   display: flex;
   flex-direction: column;
   gap: 36px;
-}
-.application__subtitle {
-  transition: color .2s ease-in-out;
-  font-weight: bold;
-  &.active {
-    pointer-events: none;
-    color: $btn-primary;
-  }
-  &:hover {
-    color: $btn-primary;
-  }
 }
 .apps-container {
   display: flex;
