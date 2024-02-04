@@ -1,18 +1,18 @@
 import Head from 'next/head';
-import axios from 'axios';
 import { ApplicationForm } from '@/components/Forms';
 import Section from '@/components/UI/Section';
 import { ParticipantType } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import Regulations from '@/components/Regulations';
+import { getCategoriesTitles } from '@/utils/categories';
 
 export async function getStaticProps() {
-  const { data } = await axios.get(`http://api.bncbjj.site/participants`);
+  const data = getCategoriesTitles();
   return { props: { data } };
 }
 
-export default function Home({ data }: { data: { [key: string]: ParticipantType[] } }) {
+export default function Home({ data }: { data: { [key: string]: string } }) {
   return (
     <>
       <Head>
@@ -52,7 +52,7 @@ export default function Home({ data }: { data: { [key: string]: ParticipantType[
             <h2 className="subtitle">Списки</h2>
             {Object.keys(data).map((title) => (
               <div key={title}>
-                <Link href="/list" className="home__link text">
+                <Link href={`/list?${data[title]}`} className="home__link text">
                   {title}
                 </Link>
               </div>

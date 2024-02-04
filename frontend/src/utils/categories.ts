@@ -23,3 +23,19 @@ export const categoriesBelts: { [key: string]: string[] } = {
   Мужчины: menBelts,
   Женщины: womenBelts,
 };
+
+export function getCategoriesTitles() {
+  const titles: Record<string, string> = {};
+  categories.forEach((division) => {
+    const belts = categoriesBelts[division];
+    const weights = categoriesWeights[division];
+    belts.forEach((belt) => {
+      weights.forEach((weight) => {
+        const title = `${division} / ${belt.replace('й', 'е')} пояса / ${weight} КГ`;
+        const link = `division=${division}&belt=${belt}&weight=${weight}`;
+        titles[title] = link;
+      });
+    });
+  });
+  return titles;
+}

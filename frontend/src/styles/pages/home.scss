@@ -41,6 +41,9 @@
         font-weight: 400;
       }
     }
+    &:last-child {
+      gap: 12px;
+    }
     @media (max-width: 1200px) {
       padding: 20px;
     }
