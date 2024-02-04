@@ -155,47 +155,38 @@ export const ApplicationForm = () => {
             setTrainer(str);
           }}
         />
-        <div className="form__field">
-          <Dropdown
-            onClick={handleCategoryClick}
-            active={divisionActive}
-            setActive={(value: boolean) => setDivisionActive(value)}
-            state={values.division}
-            setState={(value: string) => setDivision(value)}
-            text="Дивизион"
-            error={errors.divisionError}
-            values={categories}
-          />
-          <p className="text form__error">{errors.divisionError}</p>
-        </div>
-        <div className="form__field">
-          <Dropdown
-            onClick={handleWeightClick}
-            active={weightActive}
-            setActive={(value: boolean) => setWeightActive(value)}
-            state={values.weight || ''}
-            setState={(value: number) => setWeight(value)}
-            text="Весовая категория"
-            error={errors.weightError}
-            listDisabled={values.division === ''}
-            values={values.division ? categoriesWeights[values.division] : dropdownDefaultValue}
-          />
-          <p className="text form__error">{errors.weightError}</p>
-        </div>
-        <div className="form__field">
-          <Dropdown
-            onClick={handleBeltClick}
-            active={beltActive}
-            setActive={(value: boolean) => setBeltActive(value)}
-            state={values.belt}
-            setState={(value: string) => setBelt(value)}
-            text="Пояс"
-            listDisabled={values.division === ''}
-            error={errors.beltError}
-            values={values.division ? categoriesBelts[values.division] : dropdownDefaultValue}
-          />
-          <p className="text form__error">{errors.beltError}</p>
-        </div>
+        <Dropdown
+          onClick={handleCategoryClick}
+          active={divisionActive}
+          setActive={(value: boolean) => setDivisionActive(value)}
+          state={values.division}
+          setState={(value: string) => setDivision(value)}
+          text="Дивизион"
+          error={errors.divisionError}
+          values={categories}
+        />
+        <Dropdown
+          onClick={handleWeightClick}
+          active={weightActive}
+          setActive={(value: boolean) => setWeightActive(value)}
+          state={values.weight || ''}
+          setState={(value: number) => setWeight(value)}
+          text="Весовая категория"
+          error={errors.weightError}
+          listDisabled={values.division === ''}
+          values={values.division ? categoriesWeights[values.division] : dropdownDefaultValue}
+        />
+        <Dropdown
+          onClick={handleBeltClick}
+          active={beltActive}
+          setActive={(value: boolean) => setBeltActive(value)}
+          state={values.belt}
+          setState={(value: string) => setBelt(value)}
+          text="Пояс"
+          listDisabled={values.division === ''}
+          error={errors.beltError}
+          values={values.division ? categoriesBelts[values.division] : dropdownDefaultValue}
+        />
         <button type="submit" className="btn btn-fill form__btn">
           Зарегистрироваться
         </button>

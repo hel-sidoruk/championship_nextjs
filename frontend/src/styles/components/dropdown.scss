@@ -55,8 +55,10 @@
     max-height: 200px;
     overflow-y: auto;
     @include scrollBar(10px);
-    &--disabled {
-      pointer-events: none;
+    &.disabled {
+      .dropdown__item {
+        pointer-events: none;
+      }
     }
   }
   &__item {

@@ -12,7 +12,6 @@ export const SearchForm = () => {
   const [category, setCategory] = useState('');
   const [weight, setWeight] = useState(0);
   const [belt, setBelt] = useState('');
-  const [team, setTeam] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -73,15 +72,6 @@ export const SearchForm = () => {
           text="Пояс"
           listDisabled={category === ''}
           values={category ? categoriesBelts[category] : dropdownDefaultValue}
-        />
-      </div>
-      <div className="form__field">
-        <input
-          id="Команда"
-          className={`form__input`}
-          placeholder="Команда"
-          value={team}
-          onChange={(e) => setTeam(e.target.value)}
         />
       </div>
       <button type="submit" className="btn btn-fill form__btn">

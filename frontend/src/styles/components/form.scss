@@ -16,6 +16,9 @@
   grid-template-columns: repeat(2, 1fr);
   max-width: 800px;
   width: 100%;
+  .btn {
+    align-self: self-end;
+  }
   &.search-form {
     margin-bottom: 40px;
   }
@@ -98,20 +101,16 @@
   &__field {
     position: relative;
     label {
-      margin-bottom: 10px;
-      display: block;
-      font-size: 18px;
+      font-size: 14px;
       font-weight: 600;
       color: $dark;
-      text-transform: uppercase;
     }
   }
   &__btn {
-    font-size: 20px;
+    font-size: 18px;
     text-transform: uppercase;
     min-width: 300px;
     letter-spacing: 1px;
-    margin-top: 46px;
     @media (max-width: 900px) {
       margin-top: 16px;
     }

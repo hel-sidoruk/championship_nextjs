@@ -28,6 +28,7 @@ const Dropdown = ({
     if (listDisabled) return;
     setState(value);
   };
+
   const toggleActive = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     onClick();
@@ -41,21 +42,25 @@ const Dropdown = ({
   }, []);
 
   return (
-    <div
-      onClick={toggleActive}
-      className={`dropdown ${!values.length ? 'disabled' : ''} ${error ? 'error' : ''}`}
-    >
-      {state ? '' : <span>{text}</span>}
-      <div className={`dropdown__top ${active ? 'dropdown__active' : ''}`}>
-        {state.toString().match(/\d/) ? `${state} кг` : state}
+    <div className="form__field">
+      <label>{text}</label>
+      <div
+        onClick={toggleActive}
+        className={`dropdown ${!values.length ? 'disabled' : ''} ${error ? 'error' : ''}`}
+      >
+        {state ? '' : <span>{text}</span>}
+        <div className={`dropdown__top ${active ? 'dropdown__active' : ''}`}>
+          {state.toString().match(/\d/) ? `${state} кг` : state}
+        </div>
+        <ul className={`dropdown__list ${listDisabled ? 'disabled' : ''}`}>
+          {values.map((el) => (
+            <li key={el} className="dropdown__item" onClick={() => handleClick(el)}>
+              {el.toString().match(/\d/) ? `${el} кг` : el}
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul className={`dropdown__list ${listDisabled ? 'dropdown__list--disabled' : ''}`}>
-        {values.map((el) => (
-          <li key={el} className="dropdown__item" onClick={() => handleClick(el)}>
-            {el.toString().match(/\d/) ? `${el} кг` : el}
-          </li>
-        ))}
-      </ul>
+      {error && <p className="text form__error">{error}</p>}
     </div>
   );
 };
