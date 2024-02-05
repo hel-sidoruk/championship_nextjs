@@ -3,6 +3,7 @@
   width: 100%;
   border: 2px solid $dark;
   border-radius: 8px;
+  background-color: #fff;
   span {
     position: absolute;
     top: 50%;
@@ -67,6 +68,7 @@
     background-color: $light;
     transition: all .2s ease-in-out;
     color: $dark;
+    background-color: #fff;
     &:not(:last-child) {
       border-bottom: 1px solid #999;
     }

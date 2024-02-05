@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin-bottom: 60px;
   .subtitle {
     margin-bottom: 36px;
     @media (max-width: 1200px) {
@@ -137,6 +138,7 @@
     letter-spacing: 1px;
     outline: none;
     transition: all .3s ease-in-out;
+    background-color: #fff;
     &::placeholder {
       color: #8c8b8b;
     }

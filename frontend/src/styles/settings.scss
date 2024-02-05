@@ -13,6 +13,8 @@ html {
 }
 @mixin scrollBar($width) {
   &::-webkit-scrollbar {
+    background-color: #fff;
+    box-shadow: inset 2px 2px 3px rgba(#000, 0.4);
     width: $width;
     height: 6px;
   }
