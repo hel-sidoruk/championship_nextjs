@@ -1,4 +1,4 @@
-export const categories = [
+const categories = [
   'Дети KIDS 2 (6-7 лет)',
   'Дети KIDS 3 (8-9 лет)',
   'Дети INFANT (10-11 лет)',
@@ -14,7 +14,7 @@ export const categories = [
   'Женщины MASTER (30＋ лет)',
 ];
 
-export const categoriesBelts: { [key: string]: string[] } = {
+const categoriesBelts = {
   'Дети KIDS 2 (6-7 лет)': ['белый', 'цветные'],
   'Дети KIDS 3 (8-9 лет)': ['белый', 'цветные'],
   'Дети INFANT (10-11 лет)': ['белый', 'цветные'],
@@ -30,7 +30,7 @@ export const categoriesBelts: { [key: string]: string[] } = {
   'Женщины MASTER (30＋ лет)': ['белый', 'синий', 'пурпурный', 'коричневый', 'черный'],
 };
 
-export const categoriesWeights: { [key: string]: number[] } = {
+const categoriesWeights = {
   'Дети KIDS 2 (6-7 лет)': [18, 20, 23, 26, 30, 34, 38, 46],
   'Дети KIDS 3 (8-9 лет)': [21, 24, 27, 30, 34, 38, 42, 50],
   'Дети INFANT (10-11 лет)': [24, 27, 30, 34, 38, 42, 46, 50, 62],
@@ -46,18 +46,8 @@ export const categoriesWeights: { [key: string]: number[] } = {
   'Женщины MASTER (30＋ лет)': [49, 55, 62, 70, 95],
 };
 
-// export function getCategoriesTitles() {
-//   const titles: Record<string, string> = {};
-//   categories.forEach((division) => {
-//     // const belts = categoriesBelts[division];
-//     // const weights = categoriesWeights[division];
-//     const title = `${division}`;
-//     const link = `division=${division}`;
-//     titles[title] = link;
-//     // belts.forEach((belt) => {
-//     // weights.forEach((weight) => {
-//     // });
-//     // });
-//   });
-//   return titles;
-// }
+module.exports = {
+  categories,
+  categoriesWeights,
+  categoriesBelts 
+}

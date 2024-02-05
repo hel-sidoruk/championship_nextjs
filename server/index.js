@@ -9,6 +9,8 @@ const knex = require('knex')(config);
 const TelegramApi = require('node-telegram-bot-api')
 const jwt = require('jsonwebtoken');
 const { nanoid } = require('nanoid')
+const { categories, categoriesBelts, categoriesWeights } = require('./utils/categories');
+const { getSafeQuery } = require('./utils/getSafeQuery');
 
 const generateJwt = (login) => {
   return jwt.sign({ login }, process.env.SECRET_KEY, {
@@ -20,14 +22,13 @@ const bot = new TelegramApi(process.env.TELEGRAM_BOT);
 
 app.use(express.json());
 
-const { categories, categoriesBelts, categoriesWeights } = require('./categories');
-
 app.get('/participants', async (req, res) => {
   try {
     const query = req.query;
+    const safeQuery = getSafeQuery(query)
 
     const data = {};
-    const participants = await knex('participants').where(query).orderBy('name');
+    const participants = await knex('participants').where(safeQuery).orderBy('name');
 
     categories.forEach((division) => {
       const categoryParticipants = participants.filter((el) => el.division === division);

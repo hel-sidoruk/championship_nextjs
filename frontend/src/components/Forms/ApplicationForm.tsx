@@ -7,7 +7,7 @@ import Dropdown from './Dropdown';
 import { FormSuccess } from './FormSuccess';
 import { InputField } from './InputField';
 
-const dropdownDefaultValue = ['Выберите возрастную категорию'];
+const dropdownDefaultValue = ['Выберите дивизион'];
 
 export const ApplicationForm = () => {
   const [

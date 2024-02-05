@@ -4,14 +4,16 @@ import Section from '@/components/UI/Section';
 import Image from 'next/image';
 import Link from 'next/link';
 import Regulations from '@/components/Regulations';
-import { getCategoriesTitles } from '@/utils/categories';
+import { categories } from '@/utils/categories';
+// import { getCategoriesTitles } from '@/utils/categories';
 
-export async function getStaticProps() {
-  const data = getCategoriesTitles();
-  return { props: { data } };
-}
+// export async function getStaticProps() {
+//   const data = getCategoriesTitles();
+//   return { props: { data } };
+// }
 
-export default function Home({ data }: { data: { [key: string]: string } }) {
+export default function Home() {
+  // export default function Home({ data }: { data: { [key: string]: string } }) {
   return (
     <>
       <Head>
@@ -49,10 +51,10 @@ export default function Home({ data }: { data: { [key: string]: string } }) {
           </div>
           <div className="home__info">
             <h2 className="subtitle">Списки</h2>
-            {Object.keys(data).map((title) => (
-              <div key={title}>
-                <Link href={`/list?${data[title]}`} className="home__link text">
-                  {title}
+            {categories.map((division) => (
+              <div key={division}>
+                <Link href={`/list?division=${division}`} className="home__link text">
+                  {division}
                 </Link>
               </div>
             ))}

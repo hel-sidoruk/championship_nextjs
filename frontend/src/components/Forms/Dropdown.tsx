@@ -50,12 +50,12 @@ const Dropdown = ({
       >
         {state ? '' : <span>{text}</span>}
         <div className={`dropdown__top ${active ? 'dropdown__active' : ''}`}>
-          {state.toString().match(/\d/) ? `${state} кг` : state}
+          {state.toString().match(/^[\d]/) ? `${state} кг` : state}
         </div>
         <ul className={`dropdown__list ${listDisabled ? 'disabled' : ''}`}>
           {values.map((el) => (
             <li key={el} className="dropdown__item" onClick={() => handleClick(el)}>
-              {el.toString().match(/\d/) ? `${el} кг` : el}
+              {el.toString().match(/^[\d]/) ? `${el} кг` : el}
             </li>
           ))}
         </ul>

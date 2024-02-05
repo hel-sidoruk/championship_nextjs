@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/create.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/create.ts", "src/utils/getSafeQuery.ts"],
   "exclude": ["node_modules"]
 }

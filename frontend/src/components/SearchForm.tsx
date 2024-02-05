@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Dropdown from './Forms/Dropdown';
 import { useSearchForm } from '@/hooks/useSearchForm';
 
-const dropdownDefaultValue = ['Выберите возрастную категорию'];
+const dropdownDefaultValue = ['Выберите дивизион'];
 
 export const SearchForm = () => {
   const [query, setCategory, setWeight, setBelt, search, reset] = useSearchForm();

@@ -3,14 +3,15 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getKnex } from '../../../knex';
 import { categories, categoriesBelts, categoriesWeights } from '@/utils/categories';
 import { ParticipantType } from '@/types';
+import { getSafeQuery } from '@/utils/getSafeQuery';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const knex = getKnex();
 
   const query = req.query;
-
+  const safeQuery = getSafeQuery(query as { [key: string]: string });
   const data: { [key: string]: ParticipantType[] } = {};
-  const participants = await knex('participants').where(query);
+  const participants = await knex('participants').where(safeQuery);
 
   categories.forEach((division) => {
     const categoryParticipants = participants.filter((el: any) => el.division === division);
