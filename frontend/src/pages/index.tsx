@@ -5,15 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Regulations from '@/components/Regulations';
 import { categories } from '@/utils/categories';
-// import { getCategoriesTitles } from '@/utils/categories';
-
-// export async function getStaticProps() {
-//   const data = getCategoriesTitles();
-//   return { props: { data } };
-// }
 
 export default function Home() {
-  // export default function Home({ data }: { data: { [key: string]: string } }) {
   return (
     <>
       <Head>

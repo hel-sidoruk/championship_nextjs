@@ -2,6 +2,7 @@ import AdminPanel from '@/components/AdminPanel';
 import AuthForm from '@/components/Forms/AuthForm';
 import Section from '@/components/UI/Section';
 import axios from 'axios';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 
 export default function Admin() {
@@ -22,5 +23,12 @@ export default function Admin() {
       .catch((e) => console.log(e));
   }, [isAuth]);
 
-  return <Section>{!isAuth ? <AuthForm setIsAuth={setIsAuth} /> : <AdminPanel />}</Section>;
+  return (
+    <>
+      <Head>
+        <title>Админ-панель | BELARUS NATIONAL CHAMPIONSHIP BJJ 2024 GI</title>
+      </Head>
+      <Section>{!isAuth ? <AuthForm setIsAuth={setIsAuth} /> : <AdminPanel />}</Section>
+    </>
+  );
 }

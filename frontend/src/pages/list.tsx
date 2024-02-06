@@ -5,19 +5,11 @@ import { ParticipantType } from '@/types';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Head from 'next/head';
 
 export default function List() {
   const [data, setData] = useState<{ [key: string]: ParticipantType[] }>({});
   const params = useSearchParams();
-
-  useEffect(() => {
-    axios.get(`api/participants`).then(({ data }) => {
-      setData(data);
-    });
-    // axios.get(`http://api.bncbjj.site/participants`).then(({ data }) => {
-    //   setData(data);
-    // });
-  }, []);
 
   useEffect(() => {
     axios
@@ -28,6 +20,9 @@ export default function List() {
 
   return (
     <>
+      <Head>
+        <title>Списки участников | BELARUS NATIONAL CHAMPIONSHIP BJJ 2024 GI</title>
+      </Head>
       <Section>
         <h1 className="title">BELARUS NATIONAL CHAMPIONSHIP BJJ 2024 GI</h1>
       </Section>
