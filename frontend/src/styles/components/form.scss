@@ -91,7 +91,7 @@
     font-size: 20px;
     &.form__error {
       font-size: 14px;
-      line-height: 18px;
+      line-height: 14px;
     }
   }
   &__title {
@@ -113,20 +113,23 @@
       font-weight: 600;
       color: $dark;
     }
+    &.error {
+      input, .dropdown {
+        border-color: $error;
+      }
+    }
   }
   &__btn {
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    @media (max-width: 900px) {
-      margin-top: 16px;
-    }
+    margin-top: 16px;
   }
   &__error {
     color: $error;
     position: absolute;
   }
-  &__input {
+  .input {
     padding: 15px 20px;
     border: 2px solid $dark;
     border-radius: 8px;
@@ -146,8 +149,5 @@
       border-color: rgb(255, 212, 119);
       background-color: rgba(#fff, 0.2);
     }
-  }
-  &__input-error {
-    border-color: $error;
   }
 }

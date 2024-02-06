@@ -15,7 +15,7 @@ export interface Values {
   name: string;
   birthdate: string;
   division: string;
-  weight: number;
+  weight: string;
   belt: string;
   team: string;
   city: string;
