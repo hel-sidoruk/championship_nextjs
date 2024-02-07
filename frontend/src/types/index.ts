@@ -24,6 +24,10 @@ export interface Values {
   trainer: string;
 }
 
-export interface ParticipantType extends Values {
+export interface ApplicationType extends Values {
   id: string;
+}
+
+export interface ParticipantType extends ApplicationType {
+  paid: boolean;
 }

@@ -21,7 +21,11 @@ export const FormSuccess = ({ onClose }: Props) => {
         </svg>
 
         <h2>Спасибо за вашу заявку!</h2>
-        <div className="info">
+        <p className="text">
+          При подаче заявки через сайт фото оплаты стартового взноса необходимо отправить на
+          электронный адрес <b>battalion.33a@gmail.com</b>
+        </p>
+        <div className="text">
           После того, как заявка будет обработана, вы сможете найти себя в списке участников
         </div>
       </div>

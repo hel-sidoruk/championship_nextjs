@@ -55,12 +55,16 @@
     background-color: $light;
     display: flex;
     justify-content: center;
-    align-items: center;
     z-index: 10;
+    padding: 30px;
     .content {
       text-align: center;
       padding: 0 15px;
       position: relative;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
     }
     .close {
       position: absolute;
@@ -76,15 +80,6 @@
       padding-top: 10px;
       padding-bottom: 30px;
       text-align: center;
-    }
-    .link {
-      text-decoration: underline;
-      transition: color .3s ease-in-out;
-      margin-bottom: 20px;
-      display: inline-block;
-      &:hover {
-        color: #e17d7d;
-      }
     }
   }
   .text {
@@ -118,9 +113,7 @@
     font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 1px;
-    @media (max-width: 900px) {
-      margin-top: 16px;
-    }
+    margin-top: 16px;
   }
   &__error {
     color: $error;

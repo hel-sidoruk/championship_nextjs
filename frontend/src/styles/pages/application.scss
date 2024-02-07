@@ -79,14 +79,33 @@
   &__item {
     padding: 10px;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     &:not(:last-child) {
       border-bottom: 1px solid #c4c4c4;
+    }
+    &:last-child {
+      justify-content: center;
     }
   }
   &__name {
     padding: 10px 20px;
     font-weight: bold;
     border-bottom: 2px solid #000;
+  }
+  &__btn {
+    border-radius: 6px;
+    background-color: $btn-primary;
+    color: #fff;
+    padding: 4px 12px;
+    transition: all .2s ease-in-out;
+    margin-left: auto;
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+  .paid {
+    color: $btn-primary;
+    font-weight: bold;
   }
 }

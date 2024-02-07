@@ -26,7 +26,8 @@ export default function Application({ applicationData }: Props) {
   const edit = () => {
     if (isActive) {
       axios
-        .patch(`http://api.bncbjj.site/applications/${data.id}`, data)
+        .patch(`http://localhost:5000/applications/${data.id}`, data)
+        // .patch(`http://api.bncbjj.site/applications/${data.id}`, data)
         .then(() => setIsActive(false))
         .catch((e) => console.log(e));
     } else {
@@ -36,7 +37,8 @@ export default function Application({ applicationData }: Props) {
 
   const submit = () => {
     axios
-      .post(`http://api.bncbjj.site/participants`, data)
+      .post(`http://localhost:5000/participants`, data)
+      // .post(`http://api.bncbjj.site/participants`, data)
       .then(() => setDeleted(true))
       .catch((e) => console.log(e));
   };

@@ -1,6 +1,7 @@
 import { ParticipantType } from '@/types';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import RegisteredItem from './RegisteredItem';
 
 export default function RegisteredApplications() {
   const [data, setData] = useState<{ [key: string]: ParticipantType[] }>({});
@@ -19,34 +20,7 @@ export default function RegisteredApplications() {
             <h3>{title}</h3>
             <div className="apps">
               {data[title].map((item) => (
-                <div key={item.id} className="registered">
-                  <div className="registered__name">{item.name}</div>
-                  <div>
-                    <div className="registered__item">
-                      <span>Дата рождения:</span>
-                      {item.birthdate.split('-').reverse().join('.')}
-                    </div>
-                    <div className="registered__item">
-                      <span>Город:</span>г. {item.city}
-                    </div>
-                    <div className="registered__item">
-                      <span>Команда:</span>
-                      {item.team}
-                    </div>
-                    <div className="registered__item">
-                      <span>Тренер:</span>
-                      {item.trainer}
-                    </div>
-                    <div className="registered__item">
-                      <span>Email:</span>
-                      {item.email}
-                    </div>
-                    <div className="registered__item">
-                      <span>Телефон:</span>
-                      {item.phone}
-                    </div>
-                  </div>
-                </div>
+                <RegisteredItem key={item.id} item={item} />
               ))}
             </div>
           </div>
