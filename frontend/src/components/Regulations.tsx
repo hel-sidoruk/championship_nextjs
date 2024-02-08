@@ -13,10 +13,12 @@ export default function Regulations() {
       </p>
       <h4 className="text">16 марта 2024 года:</h4>
       <p className="text">08:00-9:30 – взвешивание дети, подростки, юниоры;</p>
-      <p className="text">10:00-11:00 – KIDS 2, KIDS 3;</p>
-      <p className="text">11.00-14.00 – INFANT, JUNIOR, TEEN, YOUTHS;</p>
+      <p className="text">10:00-11:00 – схватки категорий KIDS 2, KIDS 3;</p>
+      <p className="text">11.00-14.00 – схватки категорий INFANT, JUNIOR, TEEN, YOUTHS;</p>
       <p className="text">13.00-14.00 – взвешивание взрослые и ветераны;</p>
-      <p className="text">14.00-18.00 – AMATEUR/PROFESSIONAL, MASTER.</p>
+      <p className="text">
+        14.00-18.00 – схватки категорий AMATEURS, ADVANCED, PROFESSIONALS, MASTERS.
+      </p>
       <br />
       <p className="text" style={{ fontWeight: 'bold' }}>
         Каждый спортсмен до 18 лет обязан иметь медицинскую справку и медицинскую страховку, старше
@@ -84,8 +86,8 @@ export default function Regulations() {
       <p className="text">
         Продолжительность схватки: дети (6-7, 8-9 лет) – <b>2 минуты</b>, дети (10-11 лет) –{' '}
         <b>3 минуты</b>, подростки (12-13, 14-15 лет) – <b>3 минуты</b>, юниоры (16-17 лет) –{' '}
-        <b>4 минуты</b>. Категории AMATEUR/PROFESSIONAL (18-29 лет) и MASTER (30+ лет):{' '}
-        <b>5 минут</b>
+        <b>4 минуты</b>. Категории AMATEUR (18-29 лет) и MASTER (30+ лет) – <b>5 минут</b>, ADVANCED
+        и PROFESSIONAL (18-29 лет) – <b>6 минут</b>.
       </p>
       <br />
       <p className="text">

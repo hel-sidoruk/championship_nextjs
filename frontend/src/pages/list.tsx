@@ -13,8 +13,8 @@ export default function List() {
 
   useEffect(() => {
     axios
-      .get(`api/participants`, { params: Object.fromEntries(params.entries()) })
-      // .get(`http://api.bncbjj.site/participants`, { params: Object.fromEntries(params.entries()) })
+      // .get(`api/participants`, { params: Object.fromEntries(params.entries()) })
+      .get(`https://api.bncbjj.site/participants`, { params: Object.fromEntries(params.entries()) })
       .then(({ data }) => setData(data));
   }, [params]);
 

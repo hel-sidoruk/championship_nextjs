@@ -11,8 +11,8 @@ export function useApplicationSubmit(): ReturnType {
   const sendApplication = (values: Values) => {
     setIsLoading(true);
     axios
-      // .post(`http://api.bncbjj.site/applications`, values)
-      .post(`http://localhost:5000/applications`, values)
+      .post(`https://api.bncbjj.site/applications`, values)
+      // .post(`http://localhost:5000/applications`, values)
       .then(({ data }) => data.success && setSuccess(true))
       .finally(() => setIsLoading(false));
   };

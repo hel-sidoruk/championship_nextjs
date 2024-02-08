@@ -44,10 +44,12 @@ export default function RegulationsPage() {
           </p>
           <h4 className="text">16 марта 2024 года:</h4>
           <p className="text">08:00-9:30 – взвешивание дети, подростки, юниоры;</p>
-          <p className="text">10:00-11:00 – KIDS 2, KIDS 3;</p>
-          <p className="text">11.00-14.00 – INFANT, JUNIOR, TEEN, YOUTHS;</p>
+          <p className="text">10:00-11:00 – схватки категорий KIDS 2, KIDS 3;</p>
+          <p className="text">11.00-14.00 – схватки категорий INFANT, JUNIOR, TEEN, YOUTHS;</p>
           <p className="text">13.00-14.00 – взвешивание взрослые и ветераны;</p>
-          <p className="text">14.00-18.00 – AMATEUR/PROFESSIONAL, MASTER.</p>
+          <p className="text">
+            14.00-18.00 – схватки категорий AMATEURS, ADVANCED, PROFESSIONALS, MASTERS.
+          </p>
         </div>
         <div className="regulations__section">
           <h3 className="subtitle">РУКОВОДСТВО ПОДГОТОВКОЙ И ПРОВЕДЕНИЕ СОРЕВНОВАНИЙ:</h3>
@@ -74,6 +76,29 @@ export default function RegulationsPage() {
             Спортсмен, который имеет стаж занятий более 2 лет (опыт участия в профи), спортивный
             разряд или звание в спортивных видах борьбы не может выступать по белым поясам.{' '}
             <b>Возраст участников определяется по дате рождения.</b>
+          </p>
+          <p className="text" style={{ fontWeight: 'bold' }}>
+            Разделение в категориях AMATEURS, ADVANCED, PROFESSIONALS, MASTERS:
+          </p>
+          <p className="text">
+            AMATEURS — белые пояса по бразильскому джиу-джитсу и/или люди с опытом в единоборствах
+            меньше 2 лет.
+          </p>
+          <p className="text">
+            ADVANCED — синие пояса по бразильскому джиу-джитсу и/или люди с опытом в единоборствах
+            свыше 2 лет.
+          </p>
+          <p className="text">
+            PROFESSIONALS — пурпурные/ коричневые/ черные пояса по бразильскому джиу-джитсу и/или
+            люди с опытом в единоборствах свыше 5 лет.
+          </p>
+          <p className="text">
+            MASTERS — спортсмены старше 30 лет, делятся на две категории:
+            <br />
+            - белые пояса по бразильскому джиу-джитсу и/или люди с опытом в единоборствах меньше 2
+            лет,
+            <br />- цветные пояса по бразильскому джиу-джитсу и/или люди с опытом в единоборствах
+            свыше 2 лет.
           </p>
           <p className="text">
             Соревнования проводятся в соответствии с официальными международными правилами AJP
@@ -135,8 +160,8 @@ export default function RegulationsPage() {
           <p className="text">
             Продолжительность схватки: дети (6-7, 8-9 лет) – <b>2 минуты</b>, дети (10-11 лет) –{' '}
             <b>3 минуты</b>, подростки (12-13, 14-15 лет) – <b>3 минуты</b>, юниоры (16-17 лет) –{' '}
-            <b>4 минуты</b>. Категории AMATEUR/PROFESSIONAL (18-29 лет) и MASTER (30+ лет):{' '}
-            <b>5 минут</b>
+            <b>4 минуты</b>. Категории AMATEUR (18-29 лет) и MASTER (30+ лет) – <b>5 минут</b>,
+            ADVANCED и PROFESSIONAL (18-29 лет) – <b>6 минут</b>.
           </p>
         </div>
         <div className="regulations__section">
@@ -176,7 +201,7 @@ export default function RegulationsPage() {
           <p className="text">
             Сайт оnline регистрации на турнир:{' '}
             <a
-              href="http://bncbjj.site"
+              href="https://bncbjj.site"
               style={{ textDecoration: 'underline', fontWeight: 'bold' }}
             >
               http://bncbjj.site
@@ -203,7 +228,7 @@ export default function RegulationsPage() {
           </p>
           <p className="text">
             При подаче клубной заявки для команды свыше 10 спортсменов взнос за участие в
-            соревнованиях составит 35 рублей с каждого участника, для команды свыше 20 спортсменом
+            соревнованиях составит 35 рублей с каждого участника, для команды свыше 20 спортсменов
             взнос за участие в соревнованиях составит 32,5 рубля с каждого спортсмена.
           </p>
           <p className="text">Для спортсменов, подающих личные заявки (без команды): </p>

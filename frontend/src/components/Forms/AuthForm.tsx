@@ -15,8 +15,8 @@ export default function AuthForm({ setIsAuth }: Props) {
     const authData = { login, password };
 
     axios
-      .post(`http://localhost:5000/user/login`, authData)
-      // .post(`http://api.bncbjj.site/login`, authData)
+      // .post(`http://localhost:5000/user/login`, authData)
+      .post(`https://api.bncbjj.site/login`, authData)
       .then(({ data }) => {
         setIsAuth(true);
         localStorage.setItem('token', data.token);

@@ -48,6 +48,22 @@ class ParticipantsController {
       return res.status(200).json({ error: JSON.stringify(error) })
     }
   }
+  
+  async edit(req, res) {
+    try {
+      const { id } = req.params
+  
+      await knex('participants').where({ id }).update({ paid: true });
+      
+      console.log(`PATCH /participants/${id} | 200 OK`)
+      
+      return res.status(200).json('success');
+      
+    } catch (error) {
+      console.log(error)
+      return res.status(404).json({ error });
+    }
+  }
 }
 
 module.exports = new ParticipantsController();

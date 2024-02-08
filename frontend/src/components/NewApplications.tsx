@@ -8,8 +8,8 @@ export default function NewApplications() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5000/applications')
-      // .get('http://api.bncbjj.site/applications')
+      // .get('http://localhost:5000/applications')
+      .get('https://api.bncbjj.site/applications')
       .then(({ data }: { data: ParticipantType[] }) => {
         setData(data);
       });

@@ -31,6 +31,10 @@ export default function Home() {
             <Link className="link home__link" href="/list">
               Списки участников
             </Link>
+            <br />
+            <p style={{ marginBottom: '-20px' }}>
+              Зарегистрируйтесь на турнир, заполнив форму на сайте:
+            </p>
             <Link className="btn btn-fill form__btn" href="/registration">
               Регистрация
             </Link>
@@ -38,9 +42,8 @@ export default function Home() {
           <Regulations />
           <div className="home__info">
             <h2 className="subtitle">Контакты</h2>
-            <a className="" href="tel:+375296276010">
-              +375 (29) 627-60-10
-            </a>
+            <a href="tel:+375296276010">+375 (29) 627-60-10</a>
+            <a href="mailto:battalion.33a@gmail.com">battalion.33a@gmail.com</a>
           </div>
           <div className="home__info">
             <h2 className="subtitle">Списки</h2>
