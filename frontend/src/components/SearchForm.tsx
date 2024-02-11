@@ -1,4 +1,4 @@
-import { categoriesBelts, categoriesWeights, categories } from '@/utils/categories';
+import { categoriesBeltsSearch, categoriesWeights, categories } from '@/utils/categories';
 import React, { useState } from 'react';
 import Dropdown from './Forms/Dropdown';
 import { useSearchForm } from '@/hooks/useSearchForm';
@@ -56,7 +56,7 @@ export const SearchForm = () => {
         setState={setBelt}
         text="Пояс"
         listDisabled={query.division === ''}
-        values={query.division ? categoriesBelts[query.division] : dropdownDefaultValue}
+        values={query.division ? categoriesBeltsSearch[query.division] : dropdownDefaultValue}
       />
       <div className="btns-container">
         <button className="btn btn-fill form__btn" onClick={search}>

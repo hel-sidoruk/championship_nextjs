@@ -17,7 +17,11 @@ export function getSafeQuery(query: { [key: string]: string }) {
   }
 
   const belt = query.belt;
-  if (division && categoriesBelts[division] && categoriesBelts[division].includes(belt)) {
+  if (
+    division &&
+    categoriesBelts[division] &&
+    (categoriesBelts[division].includes(belt) || belt === 'цветные')
+  ) {
     safeQuery.belt = belt;
   }
   return safeQuery;

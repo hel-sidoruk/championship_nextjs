@@ -10,12 +10,15 @@ import Head from 'next/head';
 export default function List() {
   const [data, setData] = useState<{ [key: string]: ParticipantType[] }>({});
   const params = useSearchParams();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       // .get(`api/participants`, { params: Object.fromEntries(params.entries()) })
       .get(`https://api.bncbjj.site/participants`, { params: Object.fromEntries(params.entries()) })
-      .then(({ data }) => setData(data));
+      .then(({ data }) => setData(data))
+      .finally(() => setIsLoading(false));
   }, [params]);
 
   return (
@@ -30,14 +33,20 @@ export default function List() {
         <SearchForm />
         <section className="section-offset">
           <h2 className="title">Списки зарегистрированных</h2>
-          {Object.keys(data).map((title) => (
-            <div key={title} className="list__block">
-              <h3 className="list__subtitle">{title}</h3>
-              {data[title].map((participant) => (
-                <Participant info={participant} key={participant.id}></Participant>
+          {isLoading ? (
+            <p className="text">Загрузка...</p>
+          ) : (
+            <>
+              {Object.keys(data).map((title) => (
+                <div key={title} className="list__block">
+                  <h3 className="list__subtitle">{title}</h3>
+                  {data[title].map((participant) => (
+                    <Participant info={participant} key={participant.id}></Participant>
+                  ))}
+                </div>
               ))}
-            </div>
-          ))}
+            </>
+          )}
         </section>
       </div>
     </>
