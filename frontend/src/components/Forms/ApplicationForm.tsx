@@ -6,6 +6,7 @@ import { Loader } from '../UI/Loader';
 import Dropdown from './Dropdown';
 import { FormSuccess } from './FormSuccess';
 import { InputField } from './InputField';
+import TeamInput from '../TeamInput';
 
 const dropdownDefaultValue = ['Выберите дивизион'];
 
@@ -32,6 +33,7 @@ export const ApplicationForm = () => {
     setTrainerError,
     checkValues,
   ] = useApplicationForm();
+  const [teamActive, setTeamActive] = useState(false);
   const [divisionActive, setDivisionActive] = useState(false);
   const [weightActive, setWeightActive] = useState(false);
   const [beltActive, setBeltActive] = useState(false);
@@ -47,14 +49,23 @@ export const ApplicationForm = () => {
   const handleCategoryClick = () => {
     setWeightActive(false);
     setBeltActive(false);
+    setTeamActive(false);
   };
 
   const handleWeightClick = () => {
     setDivisionActive(false);
     setBeltActive(false);
+    setTeamActive(false);
   };
 
   const handleBeltClick = () => {
+    setWeightActive(false);
+    setDivisionActive(false);
+    setTeamActive(false);
+  };
+
+  const handleTeamClick = () => {
+    setBeltActive(false);
     setWeightActive(false);
     setDivisionActive(false);
   };
@@ -132,14 +143,14 @@ export const ApplicationForm = () => {
             setCity(str);
           }}
         />
-        <InputField
-          label="Команда"
-          error={errors.teamError}
+        <TeamInput
           value={values.team}
-          setValue={(str: string) => {
-            if (errors.teamError) setTeamError('');
-            setTeam(str);
-          }}
+          error={errors.teamError}
+          setTeam={setTeam}
+          onClick={handleTeamClick}
+          setTeamError={setTeamError}
+          setActive={setTeamActive}
+          active={teamActive}
         />
         <InputField
           label="Тренер"
