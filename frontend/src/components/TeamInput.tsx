@@ -33,7 +33,7 @@ export default function TeamInput({
   };
 
   useEffect(() => {
-    axios.get('api/teams').then(({ data }) => setTeams(data));
+    axios.get('https://api.bncbjj.site/teams').then(({ data }) => setTeams(data));
   }, []);
 
   useEffect(() => {
@@ -57,7 +57,12 @@ export default function TeamInput({
               placeholder="Команда"
               value={value}
               style={{ paddingRight: 50, border: 'unset' }}
-              onChange={(e) => setValue(e.target.value)}
+              onChange={(e) => {
+                setValue(e.target.value);
+                if (teams.filter((el) => el.includes(e.target.value)).length) {
+                  setActive(true);
+                }
+              }}
             />
           </div>
           <ul className="dropdown__list">
