@@ -5,8 +5,9 @@ import React, { useState } from 'react';
 export default function RegisteredItem({ item }: { item: ParticipantType }) {
   const [isPaid, setIsPaid] = useState(item.paid);
   const markAsPaid = () => {
-    axios.patch(`https://api.bncbjj.site/participants/${item.id}`).then(() => setIsPaid(true));
-    // axios.patch(`http://localhost:5000/participants/${item.id}`).then(() => setIsPaid(true));
+    axios
+      .patch(`${process.env.NEXT_PUBLIC_API_HOST}/participants/${item.id}`)
+      .then(() => setIsPaid(true));
   };
 
   return (

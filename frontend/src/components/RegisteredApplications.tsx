@@ -7,8 +7,7 @@ export default function RegisteredApplications() {
   const [data, setData] = useState<{ [key: string]: ParticipantType[] }>({});
 
   useEffect(() => {
-    // axios.get('http://localhost:5000/participants?admin=true').then(({ data }) => {
-    axios.get('https://api.bncbjj.site/participants?admin=true').then(({ data }) => {
+    axios.get(`${process.env.NEXT_PUBLIC_API_HOST}/participants?admin=true`).then(({ data }) => {
       setData(data);
     });
   }, []);

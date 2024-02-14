@@ -33,7 +33,7 @@ export default function TeamInput({
   };
 
   useEffect(() => {
-    axios.get('https://api.bncbjj.site/teams').then(({ data }) => setTeams(data));
+    axios.get(`${process.env.NEXT_PUBLIC_API_HOST}/teams`).then(({ data }) => setTeams(data));
   }, []);
 
   useEffect(() => {

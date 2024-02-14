@@ -9,15 +9,10 @@ interface Props {
 
 export default function Layout({ children, className }: Props) {
   return (
-    <>
-      {/* <Head>
-        <link rel="icon" href="/favicon.ico" />
-      </Head> */}
-      <div className={`site-container ${className}`}>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </div>
-    </>
+    <div className={`site-container ${className}`}>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </div>
   );
 }

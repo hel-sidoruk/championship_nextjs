@@ -10,8 +10,7 @@ export default function Admin() {
 
   useEffect(() => {
     axios
-      // .get(`http://localhost:5000/user/auth`, {
-      .get(`https://api.bncbjj.site/auth`, {
+      .get(`${process.env.NEXT_PUBLIC_API_HOST}/auth`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token') || ''}`,
         },
